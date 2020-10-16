@@ -16,13 +16,13 @@ The input is passed into the model as a 64 x 64 image. The model is structures a
 \[16x64x64\] CONV: 16 3x3 filters with stride 1, pad 1<br>
 \[16x32x32\] MAX POOL: 2x2 filters with stride 2<br>
 \[32x32x32\] CONV: 32 3x3 filters with stride 1, pad 1<br>
-\[32x32x32\] CONV: 32 3x3 filters with stride 1, pad 1
-\[32x16x16\] MAX POOL: 2x2 filters with stride 2
-\[64x16x16\] CONV: 64 3x3 filters with stride 1, pad 1
-\[64x16x16\] CONV: 64 3x3 filters with stride 1, pad 1
-\[64x8x8\] MAX POOL: 2x2 filters with stride 2
-\[1024\] FC: 1024 neurons
-\[512\] FC: 512 neurons
+\[32x32x32\] CONV: 32 3x3 filters with stride 1, pad 1<br>
+\[32x16x16\] MAX POOL: 2x2 filters with stride 2<br>
+\[64x16x16\] CONV: 64 3x3 filters with stride 1, pad 1<br>
+\[64x16x16\] CONV: 64 3x3 filters with stride 1, pad 1<br>
+\[64x8x8\] MAX POOL: 2x2 filters with stride 2<br>
+\[1024\] FC: 1024 neurons<br>
+\[512\] FC: 512 neurons<br>
 \[156\] FC: 156 neurons (class neurons)
 
 Every convolutional and fully connected layer is directly followed by batch normalization and a ReLU activation.
