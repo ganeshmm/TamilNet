@@ -1,0 +1,67 @@
+body {
+    background-color: lightgray;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 40px;
+}
+
+ol {
+    padding-left: 20px;
+    margin-top: -40px;
+}
+
+canvas {
+    width: 250px;
+    height: 250px;
+    border: 1px solid black;
+    border-radius: 15px;
+    margin: auto;
+    margin-bottom: 5px;
+    display: block;
+    background-color: white;
+}
+
+button {
+    display: inline-block;
+    width: 125px;
+}
+
+#buttons {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#guess {
+    margin-top: -20px;
+    font-size: 150px;
+}
+
+#suggestion {
+    margin-top: 50px;
+}
+
+#myguess {
+    font-size: 24px;
+}
+
+#info {
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 75px;
+}
+
+#divider {
+    display: inline;
+}
+
+#links {
+    text-align: center;
+    margin-bottom: 50px;
+    display: inline;
+}
+
+#all {
+    margin-top: 30px;
+}
