@@ -1,0 +1,10 @@
+*.npy
+.ipynb_checkpoints/
+.vscode/
+.DS_Store
+__pycache__/
+TamilNet.ipynb
+README.md
+data.py
+dataset_viz.py
+extract_labels.py
