@@ -1,4 +1,6 @@
 # TamilNet
+Try it for yourself here: [http://tamilnet.tech](http://tamilnet.tech/)!
+
 Recognizes handwritten Tamil characters with 90% accuracy. Credits to HP Labs India for the [training](http://shiftleft.com/mirrors/www.hpl.hp.com/india/research/penhw-resources/tamil-iwfhr06-train.html) and [test](http://shiftleft.com/mirrors/www.hpl.hp.com/india/research/penhw-resources/tamil-iwfhr06-test.html) datasets. This system uses a convolutional neural network (CNN), which is widely used across optical character recognition tasks.
 
 ## Introduction

@@ -3,3 +3,9 @@
 .vscode/
 .DS_Store
 __pycache__/
+data/
+TamilNet.ipynb
+README.md
+data.py
+dataset_viz.py
+extract_labels.py
