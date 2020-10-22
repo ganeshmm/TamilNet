@@ -27,4 +27,26 @@ The input is passed into the model as a 64 x 64 image. The model is structures a
 \[512\] FC: 512 neurons<br>
 \[156\] FC: 156 neurons (class neurons)
 
-Every convolutional and fully connected layer is directly followed by batch normalization and a ReLU activation.
+Every convolutional and fully connected layer is directly followed by batch normalization and a ReLU activation. I felt that this architecture was complex enough to fit the data well, while lightweight enough to be deployed in a web application, which was my intended use.
+
+## Experiments
+### Training
+Training was done on a GPU via Google Colab. There were several hyperparameters to tune, including but not limited to learning rate, weight decay (L2 regularization penalty), and initialization. Throughout the process, I referred to the online (Notes for CS231n at Stanford)[https://cs231n.github.io/] by Andrej Karpathy. I tested applying dropout on all layers as well as on only fully connected layers, but both configurations resulted in lower validation accuracy. Thus, an L2 penalty of 0.003 was chosen. All layers were initialized using Kaiming initialization and the optimizer of choice was Adam, with a learning rate of 0.001.
+
+## Testing
+Testing was also conducted on a Google Colab GPU. The final model achieved 90.7% accuracy on the test set, which was satisfactory for me. Test accuracy was consistently lower than validation accuracy, which suggests that the test set for the competition was deliberately made to be more difficult than the training set.
+
+## Web App
+The model weights of the final CNN were downloaded in the PyTorch PT format. The web app is a fairly simple one, which uses the Flask micro web framework. It consists of a canvas on which the user draws, as well as buttons to clear the canvas and submit the handwritten character for recognition. The page also includes instructions that detail how to use the tool and suggests a character to draw (primarily aimed towards non-Tamil-speaking users). Several of the elements of the page are implemented using the Bootstrap CSS framework, which provides a more appealing layout and appearance.
+
+The main.js JavaScript file takes care of accepting user input and displaying the model's output. The python scripts then process the data just as it was done during the training and testing processes, with the additional step of finding the bounding box of the character within the canvas to ensure that the character is not too small. The predicted character, along with the model's confidence (obtained using a softmax function), is displayed on the screen.
+
+## Conclusion
+I really enjoyed working on this project! I was able to develop everything from the neural network to itself to the user-facing web app. It was a great learning experience as well, as there were several bugs and issues (as there are in any project), but I was able to fix the issues or find workarounds. Plus, I was able to refresh my own Tamil writing and reading abilities!
+
+## Next Steps
+The resulting website can be used in several ways, such as a tool to practice handwriting for both children and adults alike. There are plenty of possible extensions for a project like this. A audio tool could be added, for example, to teach the pronunciation of each written character. The optical character recognition system would be expanded to take in whole words, which would involve character segmentation. The possibilities are truly endless!
+
+## Resources
+There were several resources that I referred to over the course of the project:
+(Notes for CS231n at Stanford)[https://cs231n.github.io/] by Andrej Karpathy
