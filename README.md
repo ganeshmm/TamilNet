@@ -27,14 +27,16 @@ The input is passed into the model as a 64 x 64 image. The model is structures a
 \[512\] FC: 512 neurons<br>
 \[156\] FC: 156 neurons (class neurons)
 
-Every convolutional and fully connected layer is directly followed by batch normalization and a ReLU activation. I felt that this architecture was complex enough to fit the data well, while lightweight enough to be deployed in a web application, which was my intended use.
+Every convolutional and fully connected layer is directly followed by batch normalization and a ReLU activation. 
+
+The architecture I chose was partially inspired by [Handwritten Tamil Recognition using a Convolutional Neural Network](http://alumni.media.mit.edu/~sra/tamil_cnn.pdf) by Prashanth Vijayaraghavan and Misha Sra as well as [Benchmarking on offline Handwritten Tamil Character Recognition using convolutional neural networks](https://doi.org/10.1016/j.jksuci.2019.06.004) by B.R. Kavitha and C. Srimathi. I felt that this architecture was complex enough to fit the data well, while lightweight enough to be deployed in a web application, which was my intended use.
 
 ## Experiments
 ### Training
 Training was done on a GPU via Google Colab. There were several hyperparameters to tune, including but not limited to learning rate, weight decay (L2 regularization penalty), and initialization. Throughout the process, I referred to the online [Notes for CS231n at Stanford](https://cs231n.github.io/) by Andrej Karpathy. I tested applying dropout on all layers as well as on only fully connected layers, but both configurations resulted in lower validation accuracy. Thus, an L2 penalty of 0.003 was chosen. All layers were initialized using Kaiming initialization and the optimizer of choice was Adam, with a learning rate of 0.001.
 
 ### Testing
-Testing was also conducted on a Google Colab GPU. The final model achieved 90.7% accuracy on the test set, which was satisfactory for me. Test accuracy was consistently lower than validation accuracy, which suggests that the test set for the competition was deliberately made to be more difficult than the training set.
+Testing was also conducted on a Google Colab GPU. The final model achieved 90.7% accuracy on the test set, which was satisfactory for me. As previously mentioned, since there are 156 classes, several of which are very similar to one another, attaining high accuracy is an especially difficult task. Test accuracy was consistently lower than validation accuracy, which suggests that the test set for the competition was deliberately made to be more difficult than the training set.
 
 ## Web App
 The model weights of the final CNN were downloaded in the PyTorch PT format. The web app is a fairly simple one, which uses the Flask micro web framework. It consists of a canvas on which the user draws, as well as buttons to clear the canvas and submit the handwritten character for recognition. The page also includes instructions that detail how to use the tool and suggests a character to draw (primarily aimed towards non-Tamil-speaking users). Several of the elements of the page are implemented using the Bootstrap CSS framework, which provides a more appealing layout and appearance.
