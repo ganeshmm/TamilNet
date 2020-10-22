@@ -1,5 +1,5 @@
 # TamilNet
-Try it for yourself here: [http://tamilnet.tech](http://tamilnet.tech/)!
+Try it for yourself here: [tamilnet.tech](http://tamilnet.tech/)!
 
 Recognizes handwritten Tamil characters with 90% accuracy. Credits to HP Labs India for the [training](http://shiftleft.com/mirrors/www.hpl.hp.com/india/research/penhw-resources/tamil-iwfhr06-train.html) and [test](http://shiftleft.com/mirrors/www.hpl.hp.com/india/research/penhw-resources/tamil-iwfhr06-test.html) datasets. This system uses a convolutional neural network (CNN), which is widely used across optical character recognition tasks.
 
@@ -31,7 +31,7 @@ Every convolutional and fully connected layer is directly followed by batch norm
 
 ## Experiments
 ### Training
-Training was done on a GPU via Google Colab. There were several hyperparameters to tune, including but not limited to learning rate, weight decay (L2 regularization penalty), and initialization. Throughout the process, I referred to the online (Notes for CS231n at Stanford)[https://cs231n.github.io/] by Andrej Karpathy. I tested applying dropout on all layers as well as on only fully connected layers, but both configurations resulted in lower validation accuracy. Thus, an L2 penalty of 0.003 was chosen. All layers were initialized using Kaiming initialization and the optimizer of choice was Adam, with a learning rate of 0.001.
+Training was done on a GPU via Google Colab. There were several hyperparameters to tune, including but not limited to learning rate, weight decay (L2 regularization penalty), and initialization. Throughout the process, I referred to the online [Notes for CS231n at Stanford](https://cs231n.github.io/) by Andrej Karpathy. I tested applying dropout on all layers as well as on only fully connected layers, but both configurations resulted in lower validation accuracy. Thus, an L2 penalty of 0.003 was chosen. All layers were initialized using Kaiming initialization and the optimizer of choice was Adam, with a learning rate of 0.001.
 
 ## Testing
 Testing was also conducted on a Google Colab GPU. The final model achieved 90.7% accuracy on the test set, which was satisfactory for me. Test accuracy was consistently lower than validation accuracy, which suggests that the test set for the competition was deliberately made to be more difficult than the training set.
@@ -46,7 +46,3 @@ I really enjoyed working on this project! I was able to develop everything from 
 
 ## Next Steps
 The resulting website can be used in several ways, such as a tool to practice handwriting for both children and adults alike. There are plenty of possible extensions for a project like this. A audio tool could be added, for example, to teach the pronunciation of each written character. The optical character recognition system would be expanded to take in whole words, which would involve character segmentation. The possibilities are truly endless!
-
-## Resources
-There were several resources that I referred to over the course of the project:
-(Notes for CS231n at Stanford)[https://cs231n.github.io/] by Andrej Karpathy
